@@ -12,6 +12,15 @@ public class BinarySearchTreeDemo {
             this.data = data;
         }
     }
+
+    public void printTree(String prefix, Node n, boolean isLeft) {
+        if (n != null) {
+            System.out.println (prefix + (isLeft ? "|-- " : "\\-- ") + n.data);
+            printTree(prefix + (isLeft ? "|   " : "    "), n.left, true);
+            printTree(prefix + (isLeft ? "|   " : "    "), n.right, false);
+        }
+    }
+
     public Node insertKeyIter(int key) {
         Node nn = new Node(key);
         if (root == null) {return nn;}
