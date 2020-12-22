@@ -5,6 +5,79 @@ import java.util.*;
 
 //Tree problems from Tushar Roy, William Fisset, and Vivekananda Khyade's Youtube playlists
 public class TreesPractice {
+
+    public static Node lcaBinaryTree(Node root, Node a, Node b) {
+        if (root == null) { return null; }
+        if (a == null || b == null) { return root; }
+        Node left = lcaBinaryTree(root.left, a, b);
+        Node right = lcaBinaryTree(root.right, a, b);
+        if (left == null && right == null) { return null;}
+        if (left != null &&  right != null) { return root; }
+        return left == null ? right:left;
+    }
+
+    public static Node lcaBST(Node root, int a, int b) {
+        if (root == null) { return null; }
+        if (root.data > Math.max(a, b)) {
+            return lcaBST(root.left, a, b);
+        }
+        else if (root.data < Math.min(a, b)) {
+            return lcaBST(root.right, a, b);
+        }
+        else {
+            return root;
+        }
+    }
+
+    public static void spiralTraversal(Node root) {
+        if (root == null) { return ;}
+        Stack<Node> st1 = new Stack<>();
+        st1.push(root);
+        Stack<Node> st2 = new Stack<>();
+        while(!st1.isEmpty() || !st2.isEmpty()) {
+            while (!st1.isEmpty()) {
+                Node curr = st1.pop();
+                System.out.print(curr.data + " ");
+                if (curr.left != null) {
+                    st2.push(curr.left);
+                }
+                if (curr.right != null) {
+                    st2.push(curr.right);
+                }
+            }
+            while (!st2.isEmpty()) {
+                Node curr = st2.pop();
+                System.out.print(curr.data + " ");
+                if (curr.right != null) {
+                    st1.push(curr.right);
+                }
+                if (curr.left != null) {
+                    st1.push(curr.left);
+                }
+            }
+        }
+    }
+
+    public static void reverseLevelOrderTraversal(Node root) {
+        if (root == null) { return; }
+        Stack<Node> st = new Stack<>();
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            Node curr = q.poll();
+            if (curr.right!= null) {
+                q.add(curr.right);
+            }
+            if (curr.left!= null) {
+                q.add(curr.left);
+            }
+            st.push(curr);
+        }
+        while(!st.isEmpty()) {
+            root = st.pop();
+            System.out.print(root.data + " ");
+        }
+    }
     public static void printLevelByLevelTree(Node root) {
         int childCnt = 0;
         int levelCnt = 1;
@@ -197,5 +270,17 @@ public class TreesPractice {
         System.out.println();
         System.out.println("Level by level order printing of Tree 2");
         printLevelByLevelTree(root2);
+        System.out.println();
+        System.out.println("REVERSE Level by level order printing of Tree 2");
+        reverseLevelOrderTraversal(root2);
+        System.out.println();
+        System.out.println("SPIRAL order printing of Tree 2");
+        spiralTraversal(root2);
+        System.out.println();
+        System.out.println("LOWEST COMMON ANCESTOR of (Node=20, Node=80) BST Tree 1= " + lcaBST(root1, 20, 80).data);
+        System.out.println();
+        Node a = t1.searchKey(root1, 50);
+        Node b = t1.searchKey(root1, 80);
+        System.out.println("LOWEST COMMON ANCESTOR of (Node=50, Node=80) BST Tree 2= " + lcaBinaryTree(root1, a, b).data);
     }
 }

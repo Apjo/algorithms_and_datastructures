@@ -21,6 +21,19 @@ public class BinarySearchTreeDemo {
         }
     }
 
+    public Node searchKey(Node root, int key) {
+        if (root == null) {return null;}
+        Node curr = root;
+        while(curr != null && curr.data != key) {
+            if (curr.data > key) {
+                curr = curr.right;
+            } else {
+                curr = curr.left;
+            }
+        }
+        return curr;
+    }
+
     public Node insertKeyIter(int key) {
         Node nn = new Node(key);
         if (root == null) {return nn;}
