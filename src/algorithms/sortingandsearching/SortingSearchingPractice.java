@@ -199,7 +199,7 @@ public class SortingSearchingPractice {
 
     // Find a triplet whose sum is 0
     static String[] findZeroSum(int[] A) {
-        if (A.length < 3 || A.length == 0 || A == null) {
+        if (A.length < 3) {
             return null;
         }
         HashSet<String> hs = new HashSet<>();

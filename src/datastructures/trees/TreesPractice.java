@@ -1,10 +1,151 @@
 package datastructures.trees;
 import datastructures.trees.BinarySearchTreeDemo.*;
 
+import java.time.temporal.Temporal;
 import java.util.*;
 
 //Tree problems from Tushar Roy, William Fisset, and Vivekananda Khyade's Youtube playlists
+/**
+ * Tree BFS Template:
+ *      void bfs(Node  root) {
+ *
+ *      }
+ * Tree DFS Template:
+ *    def caller(Node root) {
+ *        if root == null
+ *              return <appropriate result>
+ *        dfs(root, [optional params...])
+ *        return result
+ *    }
+ *    void dfs(Node root, optional params...) {
+ *        Base case answer generated here
+ *        if root.left == null && root.left == null
+ *       Recursive case: internal nodes
+ *        if root.left != null
+ *          dfs(root.left)
+ *        if root.right != null
+ *            dfs(root.right)
+ *    }
+ */
 public class TreesPractice {
+    public static int verticalSum(Node root) {
+        return -1;
+    }
+
+    public static void verticalTraversal(Node root) {
+
+    }
+    public static int diagonalSum(Node root) {
+        return -1;
+    }
+
+    public static void diagonalTraversal(Node root) {
+    }
+
+    public static List<Integer> bottomView(Node root) {
+        if (root == null) { return new ArrayList<>(); }
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        TreeMap<Integer, Node> tm = new TreeMap<>();
+        tm.put(0, root);
+        while (!q.isEmpty()) {
+            Node curr = q.poll();
+
+        }
+
+        return null;
+    }
+
+    public static void binaryTreeToDLL(Node root) {
+
+    }
+
+    //Print all nodes having K leaves in its subtree
+    public static int countKLeaves(Node root, int k) {
+        if (root == null) { return 0; }
+        if (root.left == null && root.right == null) { return 1; }
+        int tc = countKLeaves(root.left, k) + countKLeaves(root.right, k);
+        if (tc == k) {
+            System.out.print(root.data + " ");
+        }
+        return tc;
+    }
+    //Given a binary tree and a number, return the path if the tree has a root-to-leaf path such that adding up all the values
+    // along the path equals the given number. Return an empty list if no such path can be found.
+    public static List<Integer> rootToLeafSumPath(Node root, int k) {
+        if (root == null) { return new ArrayList<>(); }
+        List<Integer> result = new ArrayList<>();
+        solveHasPathSum(root, k, result);
+        return result;
+    }
+
+    private static void solveHasPathSum(Node root, int k, List<Integer> buff) {
+        k = k - root.data;
+        if (root.left == null && root.right == null) {
+            if (root.data == k) {
+                buff.add(root.data);
+            }
+        }
+        if (root.left != null) {
+            solveHasPathSum(root.left, k, buff);
+        }
+        if (root.right != null) {
+            solveHasPathSum(root.right, k, buff);
+        }
+    }
+
+    public static boolean isIsoMorphic(Node A, Node B) {
+        if (A == null && B == null) { return true ;}
+        if (A == null || B == null) { return false; }
+        if (A.data != B.data) { return false; }
+
+        return (isIsoMorphic(A.left, B.left) && isIsoMorphic(A.right, B.right)
+                || isIsoMorphic(A.left, B.right) && isIsoMorphic(A.right, B.left));
+    }
+
+    //Diameter is the number of nodes on the longest path in a binary tree.
+    public static int diameter(Node root) {
+        if (root == null) { return 0; }
+        int leftHeight = heightOfTree(root.left);
+        int rightHeight = heightOfTree(root.right);
+        int leftDia = diameter(root.left);
+        int rightDia = diameter(root.right);
+        //return the diameter when the dia is calculated if the root node is involved, and when the root node is not involved
+        return Math.max(leftHeight + rightHeight + 1, Math.max(leftDia, rightDia));
+    }
+    public static int countHowManyBSTs(int N) {
+        int[]memo = new int[N];
+        Arrays.fill(memo, -1);
+        if (N <= 1) {
+            return 1;
+        }
+        if (memo[N] != -1) {
+            return memo[N];
+        }
+        int ctr = 0;
+        for (int i = 0; i < N; i++) {
+            int numBSTsInRight = N - 1 - i;
+            ctr += countHowManyBSTs(i) * countHowManyBSTs(numBSTsInRight);
+        }
+        memo[N] = ctr;
+        return ctr;
+    }
+
+    public static Node constructBSTFromArray(int []nums) {
+        if (nums == null || nums.length == 0) {
+            return null;
+        }
+        Node root = solve(nums, 0, nums.length - 1);
+        return root;
+    }
+    private static Node solve(int[] a, int lo, int hi) {
+        if (lo > hi) { return null; }
+        int mid = (lo + hi) / 2;
+        Node root = Node.newNode(a[mid]);
+        root.left = solve(a, lo, mid - 1);
+        root.right = solve(a, mid + 1, hi);
+        return root;
+    }
 
     public static Node lcaBinaryTree(Node root, Node a, Node b) {
         if (root == null) { return null; }
@@ -204,6 +345,27 @@ public class TreesPractice {
         }
         return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
     }
+    //This is the DFS on a tree pattern as mentioned above
+    public static boolean hasPathSumDfs(Node root, int target) {
+        if (root == null) {return false; }
+        boolean[]result = new boolean[]{false};
+        dfs(root, result, target);
+        return result[0];
+    }
+    private static void dfs(Node root, boolean[]res, int k) {
+        k = k - root.data;
+        if (root.left == null && root.right == null) {
+            if (k == 0) {
+                res[0] = true;
+            }
+        }
+        if (root.left != null) {
+            dfs(root.left, res, k);
+        }
+        if (root.right != null) {
+            dfs(root.right, res, k);
+        }
+    }
     //O(N)
     public static boolean hasPathSum(Node root, int target, List<Integer> path) {
         if (root == null) {
@@ -282,5 +444,9 @@ public class TreesPractice {
         Node a = t1.searchKey(root1, 50);
         Node b = t1.searchKey(root1, 80);
         System.out.println("LOWEST COMMON ANCESTOR of (Node=50, Node=80) BST Tree 2= " + lcaBinaryTree(root1, a, b).data);
+        int[]nums = new int[]{-10,-3,0,5,9};
+        System.out.println("BST from a sorted array");
+        Node root3 = constructBSTFromArray(nums);
+        printLevelByLevelTree(root3);
     }
 }

@@ -2,7 +2,7 @@ package algorithms.recursion;
 
 import java.util.*;
 
-//This class inlcudes problems from Aditya Verma's Recursion playlist
+//This class includes problems from Aditya Verma's Recursion playlist
 //https://www.youtube.com/watch?v=J2Er5XceU_I&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
 // and a few others from LC
 public class RecursionPractice {

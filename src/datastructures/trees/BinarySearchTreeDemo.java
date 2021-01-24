@@ -2,15 +2,81 @@ package datastructures.trees;
 
 public class BinarySearchTreeDemo {
     Node root;
-
+    static class Neighbors {
+        Node predecessor = null;
+        Node successor = null;
+    }
     static class Node {
-        int data;
+        int data, height, horizontalDistance;
         Node left, right;
 
-        public Node(int data) {
-            left = right = null;
-            this.data = data;
+        public static Node newNode(int data) {
+            Node n = new Node();
+            n.left = null;
+            n.right = null;
+            n.data = data;
+            n.height = 1;
+            n.horizontalDistance = Integer.MAX_VALUE;
+            return n;
         }
+    }
+    public void morrisInorder(Node root) {
+        //TODO
+    }
+    public void postOrderWithOneStack(Node root) {
+        //TODO
+    }
+
+    public Node inorderSuccessor(Node n) {
+        Node ans = null;
+        //case 1: when the node has a right subtree, find the least value node from that right subtree
+        if (n.right != null) {
+            Node temp = n.right;
+            while(temp.left != null) {
+                temp = temp.left;
+            }
+            ans = temp;
+        } else {
+            //case 2: If node does not have a right subtree, start from root, and search for the node n.
+            // The node from where we take the "last left"(first left ancestor) is the answer
+            Node temp = root;
+            while(temp.data != n.data) {
+                //we take a left turn
+                if (n.data <= temp.data) {
+                    ans = temp;
+                    temp = temp.left;
+                } else {
+                    temp = temp.right;
+                }
+            }
+        }
+        return ans;
+    }
+
+    public Node inorderPredecessor(Node n) {
+        Node ans = null;
+        //case 1: when the node has a left subtree, find the maximum value node from that left subtree(keep going right)
+        if (n.left != null) {
+            Node temp = n.left;
+            while(temp.right != null) {
+                temp = temp.right;
+            }
+            ans = temp;
+        } else {
+            //case 2: If node does not have a left subtree, start from root, and search for the node n.
+            // The node from where we take the "last right"(first right ancestor) is the answer
+            Node temp = root;
+            while(temp.data != n.data) {
+                //we take a right turn
+                if (n.data > temp.data) {
+                    ans = temp;
+                    temp = temp.right;
+                } else {
+                    temp = temp.left;
+                }
+            }
+        }
+        return ans;
     }
 
     public void printTree(String prefix, Node n, boolean isLeft) {
@@ -35,7 +101,7 @@ public class BinarySearchTreeDemo {
     }
 
     public Node insertKeyIter(int key) {
-        Node nn = new Node(key);
+        Node nn = Node.newNode(key);
         if (root == null) {return nn;}
         Node parent = root;
         Node curr = root;
@@ -57,7 +123,7 @@ public class BinarySearchTreeDemo {
 
     public Node insertKey(Node root, int key) {
         if (root == null) {
-            root = new Node(key);
+            root = Node.newNode(key);
             return root;
         }
         if (key < root.data) {

@@ -1,4 +1,4 @@
-package datastructures;
+package datastructures.trees;
 
 public class MinHeap {
    private int size;

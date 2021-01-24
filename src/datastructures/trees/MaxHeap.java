@@ -1,4 +1,4 @@
-package datastructures;
+package datastructures.trees;
 
 public class MaxHeap {
    private int size;

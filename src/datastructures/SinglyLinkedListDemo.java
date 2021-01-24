@@ -3,7 +3,7 @@ package datastructures;
 public class SinglyLinkedListDemo {
     Node head;
 
-    class Node {
+    static class Node {
         Node next;
         int data;
 
@@ -12,7 +12,14 @@ public class SinglyLinkedListDemo {
             next = null;
         }
     }
-
+    public Node reverseRecursive(Node head) {
+        if (head == null || head.next == null) { return head;}
+        Node q = head.next;
+        q = reverseRecursive(q);
+        head.next.next = head;
+        head.next = null;
+        return q;
+    }
     public void addNodeAtHead(int data) {
         Node nn = new Node(data);
         nn.next = head;
@@ -53,14 +60,13 @@ public class SinglyLinkedListDemo {
         if (temp == null || temp.next == null) {
             return;
         }
-        Node nn = temp.next.next;
-        temp.next = nn;
+        temp.next = temp.next.next;
     }
 
     public void reverse() {
         Node curr = head;
         Node prev = null;
-        Node next = null;
+        Node next;
         while (curr != null) {
             next = curr.next;
             curr.next = prev;
