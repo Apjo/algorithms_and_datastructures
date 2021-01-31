@@ -45,6 +45,7 @@ public class GraphDemo {
     boolean isDirected;
     private Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
     private int[][]adjMat;
+
     public GraphDemo(int totalVertices, boolean isDirected) {
         this.isDirected = isDirected;
         this.vertices = totalVertices;
