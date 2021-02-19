@@ -14,6 +14,7 @@ public class TopologicalSortKahns {
                 inDegrees[to]++;
             }
         }
+        //BFS approach is used
         Queue<Integer> q= new LinkedList<>();
         for (int v = 0; v < V; v++) {
             if (inDegrees[v] == 0) {

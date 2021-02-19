@@ -54,7 +54,7 @@ public class BasicRecursionExamples {
             int result = pow2(x, n / 2);
             return result * result;
         }
-        return x * pow1(x, n - 1);
+        return x * pow2(x, n - 1);
     }
 
     // O(2^n) time
