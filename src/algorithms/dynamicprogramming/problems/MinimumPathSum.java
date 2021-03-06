@@ -33,25 +33,28 @@ public class MinimumPathSum {
     //LC#120
     //remember pascal's triangle relation f(n,k) the min cost path from top to row n, col k
     // f(n, k) = min{f(n-1,k), f(n-1,k-1)} + cost[n][k]
+    //Time: O(r^2), aux. space O(r^2),
     int solveTriangularInput(int[][] arr) {
-        int[][]dp = new int[arr.length][arr.length];
+        int N = arr.length;
+        int[][]dp = new int[N][arr.length];//TODO no.of cols should be rowid + 1
         dp[0][0] = arr[0][0];
         //base cases
-        for (int row = 1; row < arr.length - 1; row++) {
+        for (int row = 1; row < N - 1; row++) {
             //the left most side
             dp[row][0] = arr[row][0] + dp[row - 1][0];
-            //the right most side
-            dp[row][row] = arr[row][row] + dp[row - 1][row - 1];
+            //the right most side, colid = len(dp[row]) - 1
+            dp[row][dp[row].length - 1] = arr[row][row] + dp[row - 1][row - 1];
         }
         //general traversal
         //within each row, no.of cols is row_index + 1.
         // Hence, col. index will vary from 1 to row_index - 1, having excluded first and last columns
-        for (int row = 2; row < arr.length - 1; row++) {
+        for (int row = 2; row < N - 1; row++) {
+            //our rightmost colid is basically our rowId. For ex. rowid = 2, cols are 0,1, and 2
             for (int col = 1; col < row - 1; col++) {
-                dp[row][col] = arr[row][col] + Math.min(dp[row - 1][col - 1], dp[row - 1][col]);
+                dp[row][col] = arr[row][row - 1] + Math.min(dp[row - 1][col - 1], dp[row - 1][col]);
             }
         }
         //we have all the minimum values available for each cell including each cell in the last row,we just pick whichever of them is minimum
-        return IntStream.of(dp[arr.length - 1]).max().orElse(Integer.MIN_VALUE);
+        return IntStream.of(dp[arr.length - 1]).min().orElse(Integer.MAX_VALUE);
     }
 }

@@ -68,7 +68,8 @@ public class ShortestPathCounting {
         return dp[M - 1][N - 1];
     }
     public static void main(String[] args) {
+        int[][]g = new int[][]{{0,0,0},{0,1,0},{0,0,0}};
         System.out.println("Count paths with size=2 " + countPath(2,2)); //2
-        System.out.println("Count paths with obstacles size=8 " + countPath(8,8));
+        System.out.println("Count paths with obstacles= " + countPathWithObstacles(g)); //2
     }
 }

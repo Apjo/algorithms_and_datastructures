@@ -11,7 +11,7 @@ public class MinCostClimbingStairs {
     public static int solve(int[] costs) {
         int N = costs.length;
         int[]dp = new int[N];
-        dp[0] = costs[0]; //we can start at 0, so just pick the cost as is
+        dp[0] = 0; //we can start at 0, so just pick the cost as is
         dp[1] = costs[1]; //we can start at 1, so just pick the cost as is
         for (int i = 2; i < N; i++) {
             dp[i] = costs[i] + Math.min(dp[i - 1], dp[i - 2]);

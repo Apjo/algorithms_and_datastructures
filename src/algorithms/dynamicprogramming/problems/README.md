@@ -1,9 +1,23 @@
 ## 2 stages in building a DP problem
+Think of the optimal solution as something that will be laid out in a sequence
 1. Use decrease and conquer or divide and conquer to come up with a clear recursive 
 formula/algo.
-   Think: 
    
-    How will you combine solutions to smaller instances of exactly the same problem to answer overall problem?
+2. Focus on the rightmost element of that sequence, because you are a lazy manager who just wants to complete the last
+   step of the overall project, depending on your reports to do all the rest of the work
+   As a lazy manager i will think of:
+   - the last move in a unique paths/min cost path problem or n stairs problem
+   - the last coin in the coin change problem
+3. Think about the different choices/options for what the rightmost element could be, and for each of those options, what
+   the preceding subproblem(neighbor) could be, and what information from those preceding subproblem neighbors would be 
+   required for you to solve your problem
+4. Continuing on the lazy manager approach, each preceding subproblem will be solved by an equally lazy neighbor, and those too
+   will be working on the rightmost bit of the solution, and relying on their subordinates for the solution to the remaining
+   prefix of the problem. In this way, the leaf level workers will be solving the base cases
+5. think of every subproblem as a DAG
+6. each manager will have multiple reports, and each worker can now have multiple managers they report to. Every worker 
+   is using the solutions from their reports to build the solution for a slightly larger prefix, and handing it above to
+   all their managers
    
 2. Translate the recursive algo/formula in a bottom-up DP solution:
     
