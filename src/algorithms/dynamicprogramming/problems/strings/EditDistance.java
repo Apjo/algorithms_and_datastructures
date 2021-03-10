@@ -1,4 +1,4 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.strings;
 
 /**
  * LC# 72
@@ -38,5 +38,13 @@ public class EditDistance {
             }
         }
         return dp[M][N];
+    }
+    //Allowed operations are either Insertion or Deletion.
+    //Pattern: LCS
+    //Trick: num_deletions = Len(StrA) - Len(LCS) AND num_insertions = Len(StrB) - Len(LCS)
+    public static int minStepsToConvert(String A, String B) {
+        String lcs = LongestCommonSubsequence.printLCS(A, B);
+        int diff = lcs.length();
+        return A.length() - diff + B.length() - diff;
     }
 }

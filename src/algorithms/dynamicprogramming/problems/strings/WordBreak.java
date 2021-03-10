@@ -1,4 +1,4 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.strings;
 import java.util.*;
 /**
  * LC#139

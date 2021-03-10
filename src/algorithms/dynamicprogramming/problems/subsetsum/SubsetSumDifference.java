@@ -1,4 +1,4 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.subsetsum;
 
 /**
  * Sum of subset differences

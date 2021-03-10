@@ -1,4 +1,4 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.subsetsum;
 /**
  * Given an array = [1,5,11,5] determine if the input arr. contains subsets whose sum is equal to the given target S(say 11)
  * All numbers will be positive

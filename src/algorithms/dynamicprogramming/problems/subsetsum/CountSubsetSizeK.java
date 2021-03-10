@@ -1,4 +1,4 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.subsetsum;
 
 /**
  * GFG link: <href=https://www.geeksforgeeks.org/total-number-of-subsets-of-size-at-most-k/></href>

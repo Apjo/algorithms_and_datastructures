@@ -1,4 +1,4 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.subsetsum;
 
 /*
  * Given an array = [1,1,2,3] return the count of no.of subsets whose difference in their sum is equal to the given target difference S(say 1)

@@ -1,4 +1,7 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.subsetsum;
+
+import algorithms.dynamicprogramming.problems.subsetsum.CountSubsetSumWithDifference;
+
 //LC#494
 public class TargetSum {
     //Using approach mentioned by Aditya Verma

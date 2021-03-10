@@ -1,4 +1,4 @@
-package algorithms.dynamicprogramming.problems;
+package algorithms.dynamicprogramming.problems.subsetsum;
 
 /**
  * Given an array = [1,5,11,5] determine if the input arr. can be split exactly in half such that
