@@ -37,7 +37,7 @@ public class BasicRecursionExamples {
         return ((a * b) / gcd(a, b));
     }
 
-    // O(n)
+    // O(2^n)
     int pow1(int x, int n) {
         if (n == 0) {
             return 1;
@@ -1085,7 +1085,7 @@ public class BasicRecursionExamples {
         BigInteger bd = karatsuba(b, d);
         // and (a+b)*(c+d) = ad+bc+ac+bd - ac - bd = ad + bc
         BigInteger adPlusbc = karatsuba(a.add(b), c.add(d)).subtract(ac).subtract(bd);
-        // return 10**(2*lengthOfHalf)*ac +10**(lengthOfHalf)*(adPlusbc) + bd
+        // return 10**(2*lengthOfHalf)*ac + 10**(lengthOfHalf)*(adPlusbc) + bd
         String part1Str = padZeros(ac.toString(), 2 * (n - n / 2), false);
         String part2Str = padZeros(adPlusbc.toString(), n - n / 2, false);
 

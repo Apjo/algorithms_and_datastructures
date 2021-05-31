@@ -12,13 +12,16 @@ public class SinglyLinkedListDemo {
             next = null;
         }
     }
-    public Node reverseRecursive(Node head) {
-        if (head == null || head.next == null) { return head;}
-        Node q = head.next;
-        q = reverseRecursive(q);
-        head.next.next = head;
-        head.next = null;
-        return q;
+
+    public void reverseRecursive(Node p) {
+        if (p.next == null) {
+            head = p;
+            return;
+        }
+        reverseRecursive(p.next);
+        Node q = p.next;
+        q.next = p;
+        p.next = null;
     }
     public void addNodeAtHead(int data) {
         Node nn = new Node(data);

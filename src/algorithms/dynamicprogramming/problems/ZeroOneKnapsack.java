@@ -21,32 +21,42 @@ package algorithms.dynamicprogramming.problems;
  *  Time: O(W*V)
  */
 public class ZeroOneKnapsack {
-    public int solveBoundedKnapsack(int[]weights, int[]costs, int W) {
-        if (weights.length == 0 || W == 0) {return 0;}
+    private static void printMatrix(int[][]m) {
+        for (int row = 0; row < m.length; row ++) {
+            for (int col = 0; col < m[0].length; col ++) {
+                System.out.print(" " + m[row][col]);
+            }
+            System.out.println();
+        }
+    }
+    public static int solveBoundedKnapsack(int[]weights, int[]costs, int W) {
         int N = weights.length;
-        int[][]dp = new int[N+1][W+1];
+        int[][]dp = new int[N + 1][W + 1];
         //initialize
-        for (int row = 1; row < N; row++) {
-            dp[row][0] = 0; //for col 0, costs at i -> 0
+        for (int row = 0; row < N + 1; row++) {
+            for (int col = 0; col < W + 1; col++) {
+                if (row == 0 || col == 0) {
+                    dp[row][col] = 0;
+                }
+            }
         }
-        for (int col = 1; col < dp[0].length; col++) {
-            dp[0][col] = 0; //for row 0, cost at i -> 0
-        }
+
         //general traversal
-        for (int row = 1; row < N; row++) {
-            for (int col = 1; col < dp[0].length; col++) {
-                if(weights[row - 1] <= W) {
+        for (int row = 1; row < N + 1 ; row++) {
+            for (int col = 1; col < W + 1; col++) {
+                if(weights[row - 1] <= col) {
                     //we found a weight capable to be added to the knapsack
                     dp[row][col] = Math.max(
                             dp[row - 1][col],//don't select the item of weight
-                            dp[row - weights[row - 1]][col - 1] + costs[row + 1] //use the item's weight -> select the item -> and add its cost
+                            dp[row - 1][col - weights[row - 1]] + costs[row - 1] //use the item's weight -> select the item -> and add its cost
                     );
                 } else {
-                    //we did not find a weight < knapsack's weight,dont select the item
+                    //we did not find a weight < knapsack's weight,don't select the item
                     dp[row][col] = dp[row - 1][col];
                 }
             }
         }
+        printMatrix(dp);
         return dp[N][W];
     }
     public static int solveUnboundedKnapsack(int[]weights, int[] costs, int W) {
@@ -79,5 +89,11 @@ public class ZeroOneKnapsack {
             }
         }
         return dp[N][W];
+    }
+    public static void main(String [] args) {
+        int[]weights = new int[]{1, 2, 3};
+        int[] costs = new int[]{10, 15, 40};
+        int K = 6;
+        System.out.println("Bounded knapsack= " + solveBoundedKnapsack(weights, costs, K));
     }
 }
