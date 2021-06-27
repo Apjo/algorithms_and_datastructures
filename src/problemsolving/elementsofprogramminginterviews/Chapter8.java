@@ -4,7 +4,7 @@ import datastructures.trees.BinaryTreeDemo;
 
 import java.util.*;
 
-//Stacks & queues
+//Stacks & queues, date: 05/31/2021
 public class Chapter8 {
     //The problem is for max stack, we started with implementation of min stack
     //1. min stack with 2 stacks
@@ -240,16 +240,16 @@ public class Chapter8 {
         Queue<BinaryTreeDemo.BinaryTreeNode> q = new LinkedList<>();
         q.add(root);
         while(!q.isEmpty()) {
-            List<Integer> inner = new ArrayList<>();
             int qSize = q.size();
+            List<Integer> inner = new ArrayList<>(qSize);
             while (qSize > 0) {
                 BinaryTreeDemo.BinaryTreeNode current = q.poll();
-                inner.add(current.data);
-                if (current.left != null) {
-                    q.add(current.left);
+                inner.add(current.getData());
+                if (current.getLeft() != null) {
+                    q.add(current.getLeft());
                 }
-                if (current.right != null) {
-                    q.add(current.right);
+                if (current.getRight() != null) {
+                    q.add(current.getRight());
                 }
                 qSize--;
             }
