@@ -1,4 +1,4 @@
-package com.interview.sortingandsearching;
+package algorithms.sortingandsearching;
 
 import java.util.*;
 

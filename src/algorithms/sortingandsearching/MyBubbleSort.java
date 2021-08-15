@@ -11,6 +11,7 @@ public class MyBubbleSort {
         int N = a.length;
         for (int i = 1; i < N; i++) {
             for (int j = 0; j <= N - i - 1; j++) {
+                //ith smallest element bubbles up into A[i] at the end of ith iteration
                 if (a[j] > a[j + 1]) {
                     int temp = a[j];
                     a[j] = a[j + 1];

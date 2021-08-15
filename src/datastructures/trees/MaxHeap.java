@@ -104,7 +104,7 @@ public class MaxHeap {
          heapify(i);
       }
    }
-
+//O(logN)
    public int extractMax() {
       if (size < 1) {
          System.out.println("Underflow occured, exiting..");

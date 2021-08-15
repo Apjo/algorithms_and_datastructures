@@ -1,7 +1,7 @@
 package problemsolving.elementsofprogramminginterviews;
 
 import java.util.*;
-
+//Start date: 06/21
 public class Chapter10 {
     //merge k sorted lists
     public static class ListNode {
@@ -177,6 +177,7 @@ public class Chapter10 {
         }
         return dummy.next;
     }
+    /*
     public static List<Integer> sortKIncreasingDecreasingArray(List<Integer> ll) {
         if (ll == null || ll.size() == 0) {
             return null;
@@ -197,7 +198,7 @@ public class Chapter10 {
             }
         }
         return mergeSortedLists(sortedSubLists);
-    }
+    }*/
     //k-sorted array
     /*
     - maintain a min heap of size k + 1, we do k + 1 because we will find the smallest element in that group at index 0.
@@ -425,6 +426,8 @@ Ask:
 - to keep a track of the elements getting added to the queue, we will need to use an index(or rank) of an element on insertion
 - A custom comparator to will be used to sort the elements in the queue based on the rank, which will keep the "most recently added" element at the front of the queue
 - the elements with the "max" rank will be popped first.
+Follow up:
+- queue using a heap
  */
 public static class StackUsingHeap {
     private PriorityQueue<StackUsingHeap> pq;

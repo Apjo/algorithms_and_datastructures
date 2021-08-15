@@ -42,7 +42,7 @@ public class MyHashTableDemo<K, V> {
         return idx;
     }
 
-    public V remove(K key) {
+    public void remove(K key) {
         // get bucket index
         int indx = getBucketIndex(key);
         // get head from the index
@@ -50,20 +50,21 @@ public class MyHashTableDemo<K, V> {
         HashNode<K, V> prev = null;
 
         while (head != null) {
-            if (head.key.equals(key))
-                break;
+            if (head.key.equals(key)) {
 
-            prev = head;
-            head = head.next;
+                break;
+            } else {
+                prev = head;
+                head = head.next;
+            }
         }
         if (head == null)
-            return null;
-        size--;
+            return;
+        this.size--;
         if (prev != null)
             prev.next = head.next;
         else
             buckets.set(indx, head.next);
-        return head.value;
     }
 
     public void add(K key, V value) {
@@ -89,7 +90,7 @@ public class MyHashTableDemo<K, V> {
         newNode.next = head;
         // set bucket index to newnode
         buckets.set(indx, newNode);
-        // check for load factor threshold, if >= 0.7
+        // check for load factor threshold, if >= 0.7 resize
         if ((1.0 * size) / numBuckets >= 0.7) {
             ArrayList<HashNode<K, V>> temp = buckets;
             buckets = new ArrayList();
@@ -121,7 +122,7 @@ public class MyHashTableDemo<K, V> {
         ArrayList<HashNode<K, V>> temp = buckets;
         for (HashNode<K, V> node : temp) {
             while (node != null) {
-                System.out.println("key = " + node.key + " value " + node.value);
+                System.out.println("key= " + node.key + ", value= " + node.value);
                 node = node.next;
             }
         }
@@ -135,10 +136,29 @@ public class MyHashTableDemo<K, V> {
         map.add("d", 5);
         map.display();
         System.out.println("Current size = " + map.getSize());
-        System.out.println("Remove " + map.remove("a"));
-        System.out.println("Remove " + map.remove("b"));
+        System.out.println("Get a = " + map.get("a"));
+        System.out.println("Remove a");
+        System.out.println("Get a = " + map.get("a"));
+        System.out.println("Get b = " + map.get("b"));
         System.out.println("Current size = " + map.getSize());
         map.display();
+        System.out.println("Get a= " + map.get("a"));
         System.out.println("Is map empty? " + map.isEmpty());
+
+        MyHashTableDemo<Integer, Integer> map2 = new MyHashTableDemo<>();
+        map2.add(1, 1);
+        map2.add(2, 2);
+        map2.display();
+
+        System.out.println("Current size= " + map2.getSize());
+        System.out.println("Get 1=" + map2.get(1));
+        System.out.println("Get 2=" + map2.get(2));
+        System.out.println("Get 3=" + map2.get(3));
+        map2.add(2, 1);
+        System.out.println("Get 2= " + map2.get(2));
+        System.out.println("Remove 2");
+        System.out.println("Get 2= " + map2.get(2));
+        System.out.println("Current size = " + map.getSize());
+        map2.display();
     }
 }

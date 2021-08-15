@@ -39,9 +39,22 @@ public class MyInsertionSort {
         return a;
     }
 
-    // public static int[] insertionSortIter(int[] a) {
-
-    // }
+     public static int[] insertionSortIter(int[] a) {
+         if (a.length <= 1) {
+             return null;
+         }
+         for (int i = 2; i < a.length; i++) {
+             int ith = a[i];
+             int j = i - 1;
+             while (j >= 1 && a[j] > ith) {
+                 //shift right a[j] to a[j+1]
+                 a[j+1] = a[j];
+                 j = j - 1;
+             }
+             a[j + 1] = ith;
+         }
+         return a;
+     }
 
     public static void main(String[] args) {
         int[] a = new int[] { 4, 5, 88, -1234, 56, 77, 99 };
