@@ -6,10 +6,18 @@ public class BinarySearchTreeDemo {
         Node predecessor = null;
         Node successor = null;
     }
-    static class Node {
-        int data, height, horizontalDistance;
-        Node left, right;
-
+    public static class Node {
+        public int data, height, horizontalDistance;
+        public Node left, right;
+        public int getData() {
+            return this.data;
+        }
+        public Node getLeft() {
+            return this.left;
+        }
+        public Node getRight() {
+            return this.right;
+        }
         public static Node newNode(int data) {
             Node n = new Node();
             n.left = null;
@@ -106,7 +114,7 @@ public class BinarySearchTreeDemo {
         Node parent = root;
         Node curr = root;
         while (curr != null) {
-            parent = curr;
+            parent = curr;//tell us where curr is coming from
             if (curr.data <= key) {
                 curr = curr.left;
             } else {
@@ -142,10 +150,13 @@ public class BinarySearchTreeDemo {
         else if (key > root.data)
             root.right = deleteKey(root.right, key);
         else {
+            //you found the key to delete
+            //case 1: a single child
             if (root.left == null)
                 return root.right;
             else if (root.right == null)
                 return root.left;
+            // case 2: 2 children
             // Find smallest node in the right subtree, since we got a node which has non
             // empty left and right subtrees, we
             // could find the largest node in the left subtree too, since in this case of
