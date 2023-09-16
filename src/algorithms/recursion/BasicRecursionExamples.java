@@ -6,6 +6,20 @@ import java.math.*;
 //link: https://codingbat.com/java/Recursion-1 and https://codingbat.com/java/Recursion-2 & very simple beginner recursion examples
 
 public class BasicRecursionExamples {
+    //time: O(2^n)
+    static int countSubsetsDivideAndConquer(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return countSubsetsDivideAndConquer(n -1) + countSubsetsDivideAndConquer(n- 1);
+    }
+    //time: O(n) using Decrease and conquer
+    static int countSubsets1(int n) {
+        if(n == 1) {
+            return 1;
+        }
+        return 2*countSubsets1(n - 1);
+    }
     public static void reverseString(char[] s) {
         if (s == null || s.length == 0) {
             return;
@@ -37,7 +51,15 @@ public class BasicRecursionExamples {
         return ((a * b) / gcd(a, b));
     }
 
-    // O(2^n)
+    // Calculate x^y. Time: O(x)
+    int powIter(int x, int y) {
+        int res = 1;
+        for (int i = 1; i < y; i++) {
+            res *= x;
+        }
+        return res;
+    }
+    // Calculate x^y O(2^n)
     int pow1(int x, int n) {
         if (n == 0) {
             return 1;
@@ -45,7 +67,7 @@ public class BasicRecursionExamples {
         return x * pow1(x, n - 1);
     }
 
-    // O(log n)
+    // Calculate x^y. O(log n)
     int pow2(int x, int n) {
         if (n == 0) {
             return 1;
@@ -57,12 +79,13 @@ public class BasicRecursionExamples {
         return x * pow2(x, n - 1);
     }
 
-    // O(2^n) time
-    int fib1(int n) {
-        if (n < 2) {
+    //O(2^n) time
+    public int fibonacci(int n) {
+        if (n == 0 || n == 1) {
             return 1;
         }
-        return fib1(n - 1) + fib1(n - 2);
+
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
     // O(N) time
@@ -137,18 +160,6 @@ public class BasicRecursionExamples {
         } else {
             return 2 + bunnyEars(bunnies - 1);
         }
-    }
-
-    public int fibonacci(int n) {
-        if (n == 0) {
-            return 0;
-        }
-
-        if (n == 1) {
-            return 1;
-        }
-
-        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
     /**

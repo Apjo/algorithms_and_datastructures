@@ -35,7 +35,7 @@ public class MyTrie {
             TrieNode existing =  current.children.get(letter); //children[letter - 'a'] would yield the TrieNode at c-'a'
             if (existing == null) {
                 existing = new TrieNode();
-                current.children.put(letter, existing);
+                current.children.put(letter, existing);//children[c-'a']=new TrieNode()
             }
             current = existing;
         }
