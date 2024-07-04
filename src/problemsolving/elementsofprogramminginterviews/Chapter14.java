@@ -1,10 +1,17 @@
 package problemsolving.elementsofprogramminginterviews;
 
 import datastructures.trees.BinarySearchTreeDemo.*;
+import problemsolving.leetcode.dailychallenge.Solution_2024_07_03;
 
 import java.util.*;
 
 public class Chapter14 {
+    public class TreeNode {
+        int val;
+        TreeNode left ,right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+    }
     //O(log n)
     public static boolean isBst(Node root) {
         return isTrueBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
@@ -134,41 +141,41 @@ public class Chapter14 {
             this.count = c;
         }
     }
-    public static class KthLargestInStreamAugUsingBST {
-        private AugBstNode root;
+    public class KthLargestInStreamAugUsingBST {
+        private AugBstNode augRoot;
         private int k;
         public KthLargestInStreamAugUsingBST(int k, int[] nums) {
             this.k = k;
             for (int i = 0; i < nums.length; i++) {
-                root = insertAugBst(root, nums[i]);
+                augRoot = insertAugBst(augRoot, nums[i]);
             }
         }
-        private static AugBstNode insertAugBst(AugBstNode root, int v) {
-            if (root == null) {
+        private AugBstNode insertAugBst(AugBstNode root, int v) {
+            if (augRoot == null) {
                 return new AugBstNode(v, 1);
-            } else if (v < root.val) {
-                root.left = insertAugBst(root.left, v);
+            } else if (v < augRoot.val) {
+                augRoot.left = insertAugBst(augRoot.left, v);
             } else {
-                root.right = insertAugBst(root.right, v);
+                augRoot.right = insertAugBst(augRoot.right, v);
             }
-            return root;
+            return augRoot;
         }
-        public static int kthLargest(AugBstNode root, int k) {
-            int v = root.right != null ? root.right.val : 0;
+        public int kthLargest(AugBstNode augRoot, int k) {
+            int v = augRoot.right != null ? augRoot.right.val : 0;
             if (k == v + 1) {
-                return root.val;
+                return augRoot.val;
             } else if (k <= v) {
-                return kthLargest(root.right, k);
+                return kthLargest(augRoot.right, k);
             } else {
-                return kthLargest(root.left, k - v -1);
+                return kthLargest(augRoot.left, k - v -1);
             }
         }
-        public static int add(int val) {
-            root = insertAugBst(root, val);
-            return kthLargest(root, k);
+        public int add(int val) {
+            augRoot = insertAugBst(augRoot, val);
+            return kthLargest(augRoot, k);
         }
     }
-    public static Node lca(Node root, Node p, Node q) {
+    public static TreeNode lca(TreeNode root, TreeNode p, TreeNode q) {
         if (root.val < p.val && root.val < q.val) {
             return lca(root.right, p, q);
         } else if (root.val > p.val && root.val > q.val) {
@@ -176,7 +183,7 @@ public class Chapter14 {
         }
         return root;
     }
-    public static Node LcaBstIter(Node root, Node p, Node q) {
+    public static TreeNode LcaBstIter(TreeNode root, TreeNode p, TreeNode q) {
         while(root != null) {
             if (root.val < p.val && root.val < q.val) {
                 root = root.right;
@@ -277,9 +284,6 @@ space:
             return false;
         }
         return (lh - rh) <= 1 && isBalanced(root.left) && isBalanced(root.right);
-    }
-    public TreeNode sortedArrayToBST(int[] nums) {
-
     }
 
 }

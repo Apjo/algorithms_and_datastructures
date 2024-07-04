@@ -4,36 +4,37 @@ import java.util.*;
 public class GraphDemo {
     /**
      * Graph representations:
-
-     1. Adjacency Matrix:
-     Pros:
-     - simplest to represent
-     - efficient to represent a dense graph
-     - querying for an edge wt takes O(1)
-     Cons:
-     - Requires O(V^2) space
-     - Iterating over all edges takes O(V^2) time
-
-     2. Adjacency List: A map of nodes to a list of edges
-     Pros:
-     - space efficient for sparse graphs
-     - iterating over all edges is efficient
-     Cons:
-     - less space efficient for denser graphs
-     - edge weight lookup is O(E)
-     - slightly more complex to represent as compared to Adj. matrix
-     3. Edge List: An ordered list of edges. Think of a triplet (u, v, w) means cost of going from
-     node u to node v is w
-     Pros:
-     - space efficient for sparse graphs
-     - iterating over all edges is efficient
-     - simple structure
-     Cons:
-     - less space efficient for denser graphs
-     - edge weight lookup is O(E)
+     * <p>
+     * 1. Adjacency Matrix:
+     * Pros:
+     * - simplest to represent
+     * - efficient to represent a dense graph
+     * - querying for an edge wt takes O(1)
+     * Cons:
+     * - Requires O(V^2) space
+     * - Iterating over all edges takes O(V^2) time
+     * <p>
+     * 2. Adjacency List: A map of nodes to a list of edges
+     * Pros:
+     * - space efficient for sparse graphs
+     * - iterating over all edges is efficient
+     * Cons:
+     * - less space efficient for denser graphs
+     * - edge weight lookup is O(E)
+     * - slightly more complex to represent as compared to Adj. matrix
+     * 3. Edge List: An ordered list of edges. Think of a triplet (u, v, w) means cost of going from
+     * node u to node v is w
+     * Pros:
+     * - space efficient for sparse graphs
+     * - iterating over all edges is efficient
+     * - simple structure
+     * Cons:
+     * - less space efficient for denser graphs
+     * - edge weight lookup is O(E)
      **/
     static class Edge {
         int from, to, weight;
+
         public Edge(int from, int to, int w) {
             this.from = from;
             this.to = to;
@@ -44,19 +45,20 @@ public class GraphDemo {
     int vertices;
     boolean isDirected;
     private Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
-    private int[][]adjMat;
+    private int[][] adjMat;
 
     public GraphDemo(int totalVertices, boolean isDirected) {
         this.isDirected = isDirected;
         this.vertices = totalVertices;
         this.adjMat = new int[totalVertices][totalVertices];
-        for (int i = 0 ; i < totalVertices; i++) {
+        for (int i = 0; i < totalVertices; i++) {
             this.adjacencyList.put(i, new LinkedList<>());
             this.adjMat[i][i] = 0;
         }
 
     }
-    public List<List<Integer>> getEdges () {
+
+    public List<List<Integer>> getEdges() {
         List<List<Integer>> ll = new ArrayList<>();
         for (int i = 0; i < this.getVertices(); i++) {
             List<Integer> edges = this.getAdjacencyList().get(i);
@@ -102,10 +104,11 @@ public class GraphDemo {
         }
         return components;
     }
+
     private void dfsCompo(int src, boolean[] visited, int cnt, int[] compos) {
         visited[src] = true;
         compos[src] = cnt;
-        for(int neighbor: this.adjacencyList.get(src)) {
+        for (int neighbor : this.adjacencyList.get(src)) {
             if (!visited[neighbor]) {
                 dfsCompo(neighbor, visited, cnt, compos);
             }
@@ -151,7 +154,7 @@ public class GraphDemo {
     // O(V+E)
     void dfs(int V) {
         boolean[] visited = new boolean[V];
-        for(int source = 0 ; source < V; source ++) {
+        for (int source = 0; source < V; source++) {
             if (!visited[source]) {
                 System.out.print("Started DFS on = " + source);
                 dfsRecur(source, visited);
@@ -175,24 +178,55 @@ public class GraphDemo {
         int src = 0;
         while (src < adjacencyList.size()) {
             System.out.print("Vertex " + src + " is connected to ");
-            for (int v : adjacencyList.get(src)) {
-                System.out.print(v + " ");
+            if(adjacencyList.get(src).size() == 0) {
+                System.out.print("Vertex " + src + " is a dead end");
+            } else {
+                for (int v : adjacencyList.getOrDefault(src, new ArrayList<>())) {
+
+                    System.out.print(v + " ");
+                }
             }
             System.out.println();
             src++;
         }
     }
+
+    private static boolean isOkToVisit(int row, int col, boolean[][] visited, int[][] G) {
+        return row >= 0 && row < G.length && col >= 0 && col < G[0].length && !visited[row][col];
+    }
+
+    void myDFS(int[][] G, int row, int col, boolean[][] visited) {
+        int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        dfsOnGrid(G, row, col, visited, directions);
+    }
+
+    void dfsOnGrid(int[][] G, int r, int c, boolean[][] visited, int[][] directions) {
+        visited[r][c] = true;
+        System.out.println("VISITED (row, col): " + r + c);
+        for (int[] dir : directions) {
+            int newR = r + dir[0];
+            int newC = c + dir[1];
+            if (isOkToVisit(newR, newC, visited, G)) {
+                System.out.println("VISITING (row, col): " + newR + newC);
+                dfsOnGrid(G, newR, newC, visited, directions);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int vertices = 5;
         GraphDemo g = new GraphDemo(vertices, true);
-        g.addEdge(0,1);
-        g.addEdge(0,4);
-        g.addEdge(1,2);
-        g.addEdge(1,3);
-        g.addEdge(1,4);
-        g.addEdge(2,3);
-        g.addEdge(3,4);
-        g.printGraph();
+        g.addEdge(0, 1);
+        g.addEdge(0, 4);
+        g.addEdge(1, 2);
+        g.addEdge(1, 3);
+        g.addEdge(1, 4);
+        g.addEdge(2, 3);
+        g.addEdge(3, 4);
+       // g.printGraph();
+        int[][] G = {{1, 1, 1, 1, 0}, {1, 1, 0, 1, 0}, {1, 1, 0, 0, 0}, {0, 0, 0, 0, 0}};
+        boolean[][] visited = new boolean[G.length][G[0].length];
+        g.myDFS(G, 0, 0, visited);
 
     }
 }
