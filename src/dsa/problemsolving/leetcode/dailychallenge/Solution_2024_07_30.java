@@ -45,7 +45,7 @@ public class Solution_2024_07_30 {
             //if curr book's width is well withing current shelf width, can add the book at this current shelf,
             // then after keeping the book on this shelf, calculate the maxht achieved
             //else, start the new shelf
-            finalAns = Math.min(finalAns, currLevelMaxHt + solve(arr, shelfW, i + 1, ans));
+            finalAns = Math.min(finalAns, currLevelMaxHt + solve(arr, shelfW, i + 1));
         }
         return ans[index] = finalAns;
     }
