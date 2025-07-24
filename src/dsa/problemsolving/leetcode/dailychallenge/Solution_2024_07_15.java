@@ -66,6 +66,7 @@ public class Solution_2024_07_15 {
             sb.deleteCharAt(0);
             sb2.deleteCharAt(0);
         }
-        return "U".repeat(sb.length()) + sb2.toString();
+        //return "U".repeat(sb.length()) + sb2.toString();
+        return "U";
     }
     }

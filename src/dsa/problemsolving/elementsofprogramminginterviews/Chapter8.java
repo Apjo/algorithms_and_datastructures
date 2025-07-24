@@ -1,6 +1,6 @@
 package dsa.problemsolving.elementsofprogramminginterviews;
 
-import dsa.trees.BinaryTreeDemo;
+import dsa.datastructures.trees.BinaryTreeDemo;
 
 import java.util.*;
 
