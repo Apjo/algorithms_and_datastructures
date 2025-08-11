@@ -1,6 +1,5 @@
 package dsa.problemsolving.neetcode;
 
-import java.io.*;
 import java.util.*;
 /*
 Given an array of strings strs, group all anagrams together into sublists. You may return the output in any order.
@@ -23,6 +22,7 @@ Input: strs = [""]
 
 Output: [[""]]
  */
+//date:07/23/2025
 public class Problem6 {
     private static String hashIt(String s) {
         int[]ctr = new int[26];

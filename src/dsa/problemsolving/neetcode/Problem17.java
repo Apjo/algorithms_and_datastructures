@@ -9,6 +9,7 @@ Return true if the Sudoku board is valid, otherwise return false
 
 Note: A board does not need to be full or be solvable to be valid.
  */
+//date:07/23/2025
 public class Problem17 {
     public boolean isValidSudoku(char[][] board) {
         boolean[][]seenR = new boolean[9][9];

@@ -26,6 +26,7 @@ Input: nums = [0,1,2,2,3,0,4,2], val = 2
 Output: [0,1,3,0,4]
 Explanation: You should return k = 5 as we have 5 elements which are not equal to val = 2.
  */
+//date:07/23/2025
 public class Problem7 {
     public int removeElement(int[] nums, int val) {
         int pos = 0;

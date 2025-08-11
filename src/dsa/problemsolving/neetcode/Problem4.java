@@ -1,7 +1,7 @@
 package dsa.problemsolving.neetcode;
 
-import java.io.*;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 /*
 Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
 
@@ -28,6 +28,7 @@ Input: nums = [5,5], target = 10
 
 Output: [0,1]
  */
+//date:07/23/2025
 public class Problem4 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> m = new HashMap<>();

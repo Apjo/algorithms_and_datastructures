@@ -2,6 +2,7 @@ package dsa.problemsolving.neetcode;
 
 public class Problem27 {
     /*
+    date:07/27/2025
     You are given an integer array nums sorted in non-decreasing order. Your task is to remove duplicates from nums in-place so that each element appears only once.
 
 After removing the duplicates, return the number of unique elements, denoted as k, such that the first k elements of nums contain the unique elements.
@@ -33,6 +34,7 @@ Constraints:
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
      */
+    //date:07/28/2025
     //time: O(n), space:O(1)
     //NOTES: Observe the initial value of the pos variable keeping track of the duplicates in version 1 and version2 of the codes
     public int removeDuplicatesv1(int[] nums) {

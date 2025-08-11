@@ -1,7 +1,7 @@
 package dsa.problemsolving.neetcode;
 
-import java.io.*;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 /*
 Design a HashSet without using any built-in hash table libraries.
 
@@ -12,6 +12,7 @@ bool contains(key) Returns whether the value key exists in the HashSet or not.
 void remove(key) Removes the value key in the HashSet. If key does not exist in the HashSet, do nothing.
 
  */
+//date:07/23/2025
 public class Problem9 {
     class MyHashSet {
         Map<Integer, Integer> hs;

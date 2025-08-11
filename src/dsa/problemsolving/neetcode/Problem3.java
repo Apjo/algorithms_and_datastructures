@@ -1,7 +1,5 @@
 package dsa.problemsolving.neetcode;
 
-import java.io.*;
-import java.util.*;
 /*
 Given two strings s and t, return true if the two strings are anagrams of each other, otherwise return false.
 
@@ -18,6 +16,7 @@ Input: s = "jar", t = "jam"
 
 Output: false
  */
+//date:07/23/2025
 public class Problem3  {
     public boolean isAnagram(String s, String t) {
         if (t.length() != s.length()) { return false; }

@@ -19,6 +19,7 @@ Input: word1 = "ab", word2 = "abbxxc"
 
 Output: "aabbbxxc"
      */
+    //date:07/28/2025
     //time: O(n+m), space:O(1)
     public String mergeAlternately(String word1, String word2) {
         int i=0, j = 0, L = word1.length(), M=word2.length();

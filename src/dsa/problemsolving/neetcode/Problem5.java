@@ -40,5 +40,6 @@ public class Problem5 {
     }
     public static void main(String[] args) {
         System.out.println(longestCommonPrefix(new String[]{"dance","dag","danger","damage"}));
+        System.out.println(longestCommonPrefix(new String[]{"colorado", "color", "cold"}));
     }
 }

@@ -21,6 +21,7 @@ Constraints:
 -1,000,000,000 <= nums[i] <= 1,000,000,000
 Follow-up: Could you solve the problem in linear time and in O(1) space?
  */
+//date:07/23/2025
 public class Problem8 {
     //Boyer Moore Voting algo:https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm
     public int majorityElement(int[] nums) {

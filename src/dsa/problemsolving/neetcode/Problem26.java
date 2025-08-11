@@ -22,6 +22,7 @@ Input: nums1 = [0,0], m = 0, nums2 = [1,2], n = 2
 
 Output: [1,2]
      */
+    //date:07/28/2025
     //time: O(n), space:O(1)
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         //NOTES: Observe the initial values of the pointers

@@ -18,6 +18,7 @@ Example 3:
 Input: nums = [1,2]
 Output: [1,2]
  */
+//date:07/23/2025
 public class Problem20 {
     public List<Integer> majorityElement(int[] nums) {
         int num1=-1, num2=-1, cnt1=0,cnt2=0;

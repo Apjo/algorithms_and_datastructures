@@ -5,6 +5,7 @@ You are given an array of integers nums, sort the array in ascending order and r
 
 You must solve the problem without using any built-in functions in O(nlog(n)) time complexity and with the smallest space complexity possible.
  */
+//date:07/23/2025
 public class Problem11 {
     private static void merge(int[]arr, int lo, int mid, int hi) {
         int[] temp = new int[hi - lo + 1];
