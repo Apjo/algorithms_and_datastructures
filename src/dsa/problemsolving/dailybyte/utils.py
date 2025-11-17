@@ -5,3 +5,9 @@ def is_palindrome(s, i, j):
         i+=1
         j-=1
     return True
+
+
+class MyLinkedList():
+    def __init__(self, value):
+        self.val = value
+        self.next = None

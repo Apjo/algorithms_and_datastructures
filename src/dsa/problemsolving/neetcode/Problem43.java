@@ -27,8 +27,8 @@ Output: [3,3,5,5,6,7]
         Deque<Integer> dq = new ArrayDeque<>();
         //to set the current max for first window
         //for i in 0 to k
-            //keep on adding to a queue as long as nums[i] is greater than the last element added
-            //else remove from the queue if nums[i] >= queue's last element
+            //keep on adding to the TAIL end of the queue as long as nums[i] is greater than the last element added
+            //else remove from the TAIL end of the queue if nums[i] >= queue's last element
             //set the 0th element of the res to be the queue's first element from the head
         for(int i=0; i < k; i++) {
             while(!dq.isEmpty() && nums[i] >= nums[dq.peekLast()]) {
@@ -41,8 +41,8 @@ Output: [3,3,5,5,6,7]
         res[idx] = nums[dq.peekFirst()];
         idx++;
         /*similarly, now from i in k to nums.len:
-         1. remove the index of the largest element in the queue if its location is outside the current sliding window i - k
-         2. keep on removing all indexes from the back fo the q where the element at those indexes are < nums[i]
+         1. remove the index of the largest element in the queue from the HEAD of the queue if its location is outside the current sliding window i - k
+         2. keep on removing all indexes from the back of the q where the element at those indexes are < nums[i]
          3. add the ith or the "right" element to the back of the queue
          4. set the element in res at location i-k+1 to be the largest element at front of the q
         */

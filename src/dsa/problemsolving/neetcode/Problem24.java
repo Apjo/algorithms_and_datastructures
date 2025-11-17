@@ -41,7 +41,7 @@ s is made up of only lowercase English letters.
         int lo=0, hi = s.length() - 1;
         while(lo < hi) {
             if(arr[lo] != arr[hi]) {
-                if(isPalindrome(arr, lo + 1, hi) || isPalindrome(arr, lo, hi - 1)) {
+                if (isPalindrome(arr, lo + 1, hi) || isPalindrome(arr, lo, hi - 1)) {
                     return true;
                 } else {
                     return false;
@@ -53,7 +53,7 @@ s is made up of only lowercase English letters.
     }
     private static boolean isPalindrome(char[]arr, int lo, int hi) {
         while(lo < hi) {
-            if(arr[lo] != arr[hi]) {
+            if (arr[lo] != arr[hi]) {
                 return false;
             }
             lo++;hi--;
