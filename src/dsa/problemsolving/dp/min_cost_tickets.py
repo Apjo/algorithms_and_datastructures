@@ -2,11 +2,15 @@
 
 ''''
 Look at the last day, and ask how could i travel on the last day, we have 3 options
+
 covered by 1-day pass: is it necessary that the previous prefix must be optimal? yes, because if it wasn't optimal then
-we could cover the previous days in a cheaper way, and then add the 1 -day pass and make the overall trip cheaper
+we could cover the previous days in a cheaper way, and then add the 1-day pass and make the overall trip cheaper
+
 7-day pass: if i used this pass to cover the 7th day before today the solution upto that must be optimal since if it wasn't
-then I could improve it by include this day, improve it
+then I could improve it by include this day
+
 30-day pass: similar argument here
+
 so, f(n) = min no. of dollars needed to travel from days[0..n]
          = min(
             f(n-1) + costs[0] if we used 1-day pass,

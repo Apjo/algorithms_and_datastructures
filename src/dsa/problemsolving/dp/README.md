@@ -13,3 +13,9 @@ So, what we can conclude from above is:
 - DP: fast, works(provided the property listed above is satisfied)
 
 *Optimal substructure*: any prefix(or suffix) of an optimal solution is also optimal
+
+## Combinatorial optimization
+Here "combinatorial" means that without DP, the combinatorial explosion of possibilities would lead to an exponential time 
+complexity.
+After all, we are optimizing permutations, and combinations(which are "combinatorial objects", always exponential in number)
+by trying to pick the "best".

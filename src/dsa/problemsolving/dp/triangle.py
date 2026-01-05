@@ -22,7 +22,7 @@ def solve(triangle: List[List[int]]):
         for col in range(1, row):
             ans[row][col] = triangle[row][col] + min(ans[row - 1][col], ans[row - 1][col - 1])
 
-    #the answer doesn't lie in the last N-1 cell this time, but instead the min value across all the elements in the last cell
+    #NOTE! : The answer doesn't lie in the last N-1 cell this time, but instead the min value across all the elements in the last cell
     return min(ans[-1])
 
 

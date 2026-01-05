@@ -2,7 +2,7 @@
 import math
 from typing import List
 
-
+#time:O(N* number of coins given)
 def solve(coins: List[int], amount: int) -> int:
     ans=[float('inf')]*(amount + 1)
     #print(len(ans))

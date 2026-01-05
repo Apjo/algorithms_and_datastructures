@@ -12,7 +12,7 @@ def solve(grid:List[List[int]]):
     for row in range(1, m):
         dp[row][0] = dp[row - 1][0] if grid[row][0] != 1 else 0
 
-    for i in range(1, m ):
+    for i in range(1, m):
         for j in range(1, n):
             if grid[i][j] != 1:
                 dp[i][j] = dp[i - 1][j] + dp[i][j - 1]

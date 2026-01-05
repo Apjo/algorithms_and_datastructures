@@ -10,6 +10,7 @@ def solve(num_rows: int) -> List[List[int]]:
             if col == 0 or col == row:
                 temp.append(1)
             else:
+                #here following from above we know nCk = n-1Ck-1 + n-1Ck
                 res1 = output[row - 1][col - 1]
                 res2 = output[row - 1][col]
                 temp.append(res1 + res2)
