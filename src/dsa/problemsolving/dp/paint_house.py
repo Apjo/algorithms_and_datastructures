@@ -10,7 +10,7 @@ def solve(costs: List[List[int]]) -> int:
     #the previous houses could be painted in GREEN, or BLUE and we need to get the min cost of to paint all such houses from 1 to i- 1 to paint house i in red
     N = len(costs)
 
-    ans=[[0] * 3 for _ in range(N) ]
+    ans=[[0] * 3 for _ in range(N)]
     #base case
     ans[0] = costs[0]
     for i in range(1, N):
