@@ -37,7 +37,7 @@ class Solution:
 
 
 def main():
-    return Solution().groupAnagrams()
+    print(Solution().groupAnagrams(["act", "cat", "tac","bat", "tab","ball", "lob"]))
 
 
 if __name__ == '__main__':
