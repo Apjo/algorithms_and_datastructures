@@ -26,16 +26,17 @@ class Solution:
         #keep expanding the window to the right, if the element at the right end of the queue is < nums[i], pop from the queue, else add this index to the queue
         while right < len(nums):
             while buff and nums[buff[-1]] < nums[right]:
-                buff.pop()
-            buff.append(right)
+                buff.pop()#pop from right
+            buff.append(right) #append to the right
+            #if the index of the left pointer is way beyond the index in the queue, pop from the queue from the LEFT!
             if left > buff[0]:
                 buff.popleft()
+            #once the window reaches a size == k, the front of the queue is the max element, add this to the result
             if right + 1 >= k :
                 res.append(nums[buff[0]])
                 left+=1
             right+=1
-        #if the index of the left pointer is way beyond the index in the queue, pop from the queue from the LEFT!
-        #once the window reaches a size == k, the front of the queue is the max element, add this to the result
+        
         #return result
         return res
 

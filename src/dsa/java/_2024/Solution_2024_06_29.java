@@ -1,4 +1,4 @@
-package dsa.problemsolving.leetcode.dailychallenge._2024;
+package dsa.java._2024;
 import java.util.*;
 public class Solution_2024_06_29 {
         static class MyUnionFind {

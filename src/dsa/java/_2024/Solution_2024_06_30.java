@@ -1,4 +1,4 @@
-package dsa.problemsolving.leetcode.dailychallenge._2024;
+package dsa.java._2024;
 
 public class Solution_2024_06_30 {
     public boolean threeConsecutiveOdds(int[] arr) {

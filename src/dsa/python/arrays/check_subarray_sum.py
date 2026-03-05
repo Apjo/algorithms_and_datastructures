@@ -3,7 +3,6 @@ from typing import List
 class Solution:
     '''
     Notes on how the % works here: https://leetcode.com/problems/continuous-subarray-sum/description/comments/1764484/
-    
     '''
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
         freq={0:-1}
