@@ -1,5 +1,5 @@
 #link: https://neetcode.io/problems/same-binary-tree/question
-from TreeNode import *
+from TreeNode import TreeNode
 from typing import Optional
 
 class Solution:
@@ -17,13 +17,13 @@ class Solution:
 
             if n.val != m.val:
                 return False
-            print(f"root vals are same check children")
+            print("root vals are same check children")
             
             is_left, is_right=False, False
             
             #if both children on left are present
             if n.left is not None and m.left is not None:
-                print(f"going left of n and m roots")
+                print("going left of n and m roots")
                 is_left = dfs(n.left, m.left)
                 print(f"from left got answer={is_left}")
             
