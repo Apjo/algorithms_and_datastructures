@@ -1,6 +1,6 @@
 #link: https://neetcode.io/problems/binary-tree-maximum-path-sum/question
 
-from TreeNode import *
+from TreeNode import TreeNode
 from typing import Optional
 
 class Solution:
@@ -44,7 +44,7 @@ class Solution:
         right_s = get_max_sum(root.right)
         
         #now find max path sum going through this node. i.e.consider this to be a Path THROUGH current node this node connects both arms Clamp to 0 means: if an arm is negative, just don't include it
-        curr_s = root.val + max(0,left_s) + max(0, right_s)
+        curr_s = root.val + max(0, left_s) + max(0, right_s)
         
         #recursively call max path sum for both left and right subtrees so that the best path that lives entirely inside left or right subtree (i.e., root is NOT part of the answer)
         sub_sum = max(self.maxPathSum(root.left), self.maxPathSum(root.right))

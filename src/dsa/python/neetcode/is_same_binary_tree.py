@@ -35,7 +35,7 @@ class Solution:
 
             #both right children are present
             if n.right is not None and m.right is not None:
-                print(f"going right of n and m roots")
+                print("going right of n and m roots")
                 is_right = dfs(n.right, m.right)
                 print(f"from right got answer={is_right}")
             #either m's right child is present or n's
