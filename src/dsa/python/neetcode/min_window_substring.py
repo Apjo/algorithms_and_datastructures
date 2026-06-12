@@ -4,7 +4,7 @@ class Solution:
         #if both are equal, return either
         if t == "":
             return ""
-        #prepare a frequency map for t, and since we need a substring in s of T, it should have the same length as that of T, call it required, and init it to len(frequency map of T) i.e. how many distinct characters of T are in S
+        #prepare a frequency map for t, and since we need a substring of T in S, it should have the same length as that of T, call it required, and init it to len(frequency map of T) i.e. how many distinct characters of T are in S
         freq_t = {}
         for c in t:
             freq_t[c] = 1+freq_t.get(c, 0)
@@ -26,5 +26,7 @@ class Solution:
                 if s[left] in freq_t and freq_s[s[left]] < freq_t[s[left]]:
                     have-=1
                 left+=1
+
         left, i = res_len
+
         return s[left : i + 1] if ans != float("infinity") else ""

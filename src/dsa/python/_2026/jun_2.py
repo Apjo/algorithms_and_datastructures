@@ -4,16 +4,7 @@ Date: 2026-06-02
 link: https://leetcode.com/problems/earliest-finish-time-for-land-and-water-rides-i/?envType=daily-question&envId=2026-06-02
 """
 
-import os
-import time
-import pandas as pd
-import numpy as np
-import heapq
-import math
-import collections
-from typing import Optional, List
-import random
-from collections import deque, defaultdict, Counter
+from typing import List
 
 class Solution:
     def earliestFinishTime(self, landStartTime: List[int], landDuration: List[int], waterStartTime: List[int], waterDuration: List[int]) -> int:
