@@ -3,16 +3,7 @@ Filename: first_missing_positive.py
 Date: 2026-06-12
 """
 
-import os
-import time
-import pandas as pd
-import numpy as np
-import heapq
-import math
-import collections
-from typing import Optional, List
-import random
-from collections import deque, defaultdict, Counter
+from typing import List
 
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:

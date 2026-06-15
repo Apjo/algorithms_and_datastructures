@@ -3,16 +3,6 @@ Filename: steps_to_reduce_binary_str.py
 Date: 2026-05-31
 """
 
-import os
-import time
-import pandas as pd
-import numpy as np
-import heapq
-import math
-import collections
-from typing import Optional, List
-import random
-from collections import deque, defaultdict, Counter
 
 def solve(s: str) -> int:
     ans=0
