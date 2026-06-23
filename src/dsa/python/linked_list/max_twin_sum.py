@@ -12,7 +12,7 @@ class Solution:
         # find mid of list
         # reverse everything from the mid
         # apply logic
-        def rev(l):
+        def rev(l: ListNode[int]):
             curr, nxt, prev = l, None, None
 
             while curr:
@@ -23,7 +23,7 @@ class Solution:
             l = prev
             return prev
 
-        def find_mind_rev(ll):
+        def find_mind_rev(ll: ListNode[int]):
             f, s = ll, ll
             while f and f.next:
                 f = f.next.next
