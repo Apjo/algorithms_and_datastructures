@@ -1,3 +1,10 @@
+"""
+Filename: combination_sum.py
+Date: 2026-07-08
+"""
+
+from typing import List
+
 class Solution:
     def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
         def solve(idx, target, res, buff):
@@ -16,3 +23,7 @@ class Solution:
         solve(idx, target, res, buff)
 
         return res
+
+
+if __name__ == '__main__':
+    Solution().solve()
