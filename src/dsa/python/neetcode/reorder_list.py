@@ -1,5 +1,5 @@
 #link: https://neetcode.io/problems/reorder-linked-list/question
-from ListNode import *
+from ListNode import ListNode
 from typing import Optional
 
 class Solution:

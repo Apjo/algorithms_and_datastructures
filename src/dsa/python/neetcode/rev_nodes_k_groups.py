@@ -1,5 +1,5 @@
 #link: https://neetcode.io/problems/reverse-nodes-in-k-group/question
-from ListNode import *
+from ListNode import ListNode
 
 from typing import Optional
 
