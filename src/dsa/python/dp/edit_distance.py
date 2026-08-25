@@ -11,7 +11,7 @@ Y = _        a         b               a
     deletion insertion substitution    match
 so basically, when a mismatch occurs we could have a substitution
 Say we are given 2 strings each represented
-X as x1, x2, x3,..., xm
+X as     x1, x2, x3,..., xm
 and Y as y1, y2, y3,..., yn
 and we are now focussing on the last pair, what could the last pair be?
 given what we know from above, we have below options(3) for aligning the characters of X and Y:
@@ -44,7 +44,7 @@ x1 x2 x3...xm
 y1 y2 y3...yn
 
 so score/cost of an alignment = sum(num insertions + num deletions + num substitutions) where if its a match there is no cost
-Now that we have the above choices as shown, can i say that,if the optimal edit distance corresponds to any of the above alignment,
+Now that we have the above choices as shown, can i say that, if the optimal edit distance corresponds to any of the above alignment,
 does that mean that previous prefix of X, and Y what we have must be the optimal way to align X and Y?
 
 f(i, j)= is the edit distance between x1..xi, and y1,,yj strings
