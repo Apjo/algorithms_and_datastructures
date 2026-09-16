@@ -30,7 +30,9 @@ class Solution:
             solve(T, idx + 1, num_coins)
 
         solve(amount, 0, 0)
+
         return ans if ans != float("inf") else -1
+
 
     # time: O(N)
     def coinChange_memo(self, coins: List[int], amount: int) -> int:

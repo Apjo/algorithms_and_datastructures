@@ -15,6 +15,7 @@ def solve(coins: List[int], amount: int) -> int:
         for c in coins:
             if i - c >= 0 and ans[i - c] != float('inf'):
                 ans[i] = min(ans[i], ans[i - c] + 1)
+
     return -1 if ans[amount] == float('inf') else ans[amount]
 
 

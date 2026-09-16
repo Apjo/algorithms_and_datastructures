@@ -76,7 +76,7 @@ class Solution:
         # we pick i - 1 or i - 2, more formally
         # f(i) = f(i - 1) if element at i isn't a 0 or is a valid number +
         #        + f(i - 2) if elements at i - 1, and i - 2 form a valid number between 10-26
-        x
+        
         f = [0] * (len(s) + 1)
         f[0] = 1  # there is only 1 way to decode NOTHING.
         f[1] = 1 if s[0] != "0" else 0
