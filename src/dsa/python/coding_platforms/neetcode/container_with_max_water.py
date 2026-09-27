@@ -1,9 +1,8 @@
 #link:https://neetcode.io/problems/max-water-container/question
 
-from typing import List
 class Solution:
     #time:O(n), space:O(1)
-    def maxArea(self, heights: List[int]) -> int:
+    def maxArea(self, heights: list[int]) -> int:
         left, right, ans=0, len(heights) - 1, float("-inf")
         while left < right:
             width = right - left
@@ -15,4 +14,5 @@ class Solution:
                 left+=1
             else:
                 right-=1
-        return ans
+
+        return int(ans)
