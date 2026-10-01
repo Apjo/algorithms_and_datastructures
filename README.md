@@ -1,109 +1,44 @@
 # Algorithms and Data Structures
 
-A comprehensive repository containing implementations of classic algorithms, data structures, and solutions to competitive programming problems. This repository serves as both a learning resource and a reference for algorithmic problem-solving.
+A learning and reference repository for algorithms, data structures, and coding-problem solutions in Java and Python.
 
-## 📚 Contents Overview
+## Repository Layout
 
-### Languages
-- **Java**: Full implementations of data structures, algorithms, and daily problem solutions
-- **Python**: Algorithms, data structures, and solutions to various online judge problems
+### Java (`src/dsa/java/`)
+- `datastructures/`: Graphs, hash tables, linked lists, stacks and queues, and trees
+- `sortingandsearching/`: Sorting and searching implementations
+- `recursion/`: Recursion and backtracking examples, including N-Queens
+- `problems/`: Problem-focused implementations, including matrix-chain multiplication and subset sum
+- `_2024/`: Date-organized problem solutions
+- `DSAUtils.java` and `Template.java`: Shared utilities and a competitive-programming input template
 
-## 🏗️ Repository Structure
+### Python (`src/dsa/python/`)
+- Topic directories include `arrays_and_strings/`, `dp/`, `hashmap/`, `heaps/`, `intervals/`, `linked_list/`, `matrix/`, `queue/`, `recursion_backtracking/`, `sliding_window/`, `stack/`, and `trees_and_graphs/`
+- `coding_platforms/` and `lc_contests/`: Platform- and contest-related solutions
+- `_2026/`: Date-organized solutions
+- `ListNode.py` and `TreeNode.py`: Shared node definitions
 
-### Java Implementation (`src/dsa/java/`)
+## Running Solutions
 
-#### Core Data Structures (`datastructures/`)
-- **Graphs**: Graph representations and algorithms
-- **Hashtable**: Hash table implementations and variations
-- **Linked Lists**: Single and double linked list implementations
-- **Stacks and Queues**: Stack and queue data structures
-- **Trees**: Binary trees, BSTs, and other tree variants
-
-#### Algorithms
-- **Sorting and Searching** (`sortingandsearching/`)
-  - Binary Search
-  - Bubble Sort, Selection Sort, Insertion Sort
-  - Merge Sort, Quick Sort, Heap Sort
-  
-- **Recursion** (`recursion/`)
-  - Basic recursion examples
-  - N-Queens problem
-  - Backtracking techniques
-
-#### Problem Solutions
-- **Daily Solutions** (`_2024/`, `_2024_08_*/`): Daily algorithm challenge solutions
-- **Problem Categories** (`problems/`)
-  - Matrix Chain Multiplication (Dynamic Programming)
-  - String problems
-  - Subset Sum (DP)
-
-#### Utilities
-- `Template.java`: Competitive programming template with input reader
-- `DSAUtils.java`: Utility functions for common operations
-
-### Python Implementation (`src/dsa/python/`)
-
-- **Daily Solutions** (`dailybyte/`): Daily coding challenges
-- **LeetCode Contests** (`lc_contests/`): Competitive solutions
-- **CodeForces** (`cf_solves/`): CodeForces problem solutions
-- **NeetCode** (`neetcode/`): Solutions from NeetCode curriculum
-- **Data Structures & Algorithms**
-  - Arrays (`arrays/`)
-  - Dynamic Programming (`dp/`)
-  - Heaps (`heaps/`)
-  - Recursion & Backtracking (`recursion_backtracking/`)
-  - Stack (`stack/`)
-  - Strings (`strings/`)
-- **Specialized**
-  - Segment Tree implementation (`segment_tree_impl.py`)
-
-## 🎯 Problem Categories
-
-### Dynamic Programming
-Understanding DP requires:
-1. Recursive formula/algorithm with decrease & conquer or divide & conquer
-2. Focus on the rightmost element and subproblem structure
-3. Enumeration of choices for each state
-4. Translation to bottom-up DP solution with proper dependency handling
-
-### Algorithm Design Strategies
-- **Brute Force**: Enumerate all possible solutions (combinatorial explosion)
-- **Branch and Bound**: Prune guaranteed non-optimal subtrees
-- **Greedy**: Select locally optimal choices
-- **Dynamic Programming**: Optimal substructure exploitation
-
-### Problem Sources
-- LeetCode: Popular online judge
-- CodeForces: Competitive programming platform
-- DailyByte: Daily coding challenges
-- NeetCode: Curated algorithm curriculum
-
-## 🚀 Quick Start
-
-### Java
-Navigate to `src/dsa/java/` and compile the desired file:
-```bash
-javac path/to/File.java
-java dsa.java.File
-```
+Run commands from the repository root.
 
 ### Python
-Navigate to `src/dsa/python/` and run the desired file:
+
 ```bash
-python3 path/to/file.py
+python3 src/dsa/python/path/to/file.py
 ```
 
-## 📝 Notes
+Replace `path/to/file.py` with the solution's path. Some files may be intended for use by an online judge rather than direct execution.
 
-- Solutions are organized by problem source and date for easy navigation
-- Each problem typically includes the solution implementation and approach commentary
-- The repository serves as both a learning journal and reference for future problems
-- Template.java provides a competitive programming foundation for Java solutions
+### Java
 
-## 📖 Learning Resources
+Java package declarations and entry points vary by class. Compile a class with `main` using `javac -d out <source-file>`, then run it with `java -cp out <fully.qualified.ClassName>`. Use the package declared in the source for the class name; not every solution is a standalone program.
 
-For deeper understanding of key concepts, see:
-- `src/dsa/java/recursion/README.md`: Recursion and backtracking explanations
-- `src/dsa/java/problems/README.md`: Dynamic programming design methodology
+## Study Notes
 
-**Purpose**: This repository documents the journey of learning and mastering algorithms and data structures through consistent practice and implementation.
+- [Recursion and backtracking](src/dsa/java/recursion/README.md)
+- [Dynamic programming problem design](src/dsa/java/problems/README.md)
+
+## Maintenance Note
+
+Java remains part of the repository for now. The Java package may be retired in a future cleanup, but no retirement is currently underway.
