@@ -3,10 +3,10 @@ Filename: course_schedule_2.py
 Date: 2026-08-03
 """
 
-from typing import List
 
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+    # time and space: O(V+E)
+    def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         def solve(vertex):
             visiting[vertex] = True
             for neighbor in G[vertex]:
@@ -38,5 +38,5 @@ class Solution:
         return res
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Solution().solve()
